@@ -1,0 +1,53 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: lightgray;
+}
+
+.contenedor {
+    text-align: center;
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.fondo-boton {
+    background-image: url('img/fondo-galleta.jpg'); /* Reemplazá con tu imagen */
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #e67e22;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d35400;
+}
+
+.frase {
+    margin-top: 20px;
+    font-size: 20px;
+    font-style: italic;
+}

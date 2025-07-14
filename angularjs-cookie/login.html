@@ -1,0 +1,46 @@
+    <!DOCTYPE html>
+    <html lang="es" ng-app="cookieApp">
+    <head>
+    <meta charset="UTF-8" />
+    <title>Galleta de la Fortuna</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+    <script src="cookie.js"></script>
+    </head>
+    <body ng-controller="CookieController">
+
+    <div ng-if="!logueado" class="formulario-login">
+        <h2>Iniciar Sesión</h2>
+        <input type="email" ng-model="usuario.email" placeholder="Email" required /><br>
+        <input type="password" ng-model="usuario.password" placeholder="Contraseña" required /><br>
+        <button ng-click="iniciarSesion()">Iniciar Sesión</button>
+        
+        <p style="color: red;" ng-if="error">{{ error }}</p>
+
+        <hr>
+
+        <h2>Registrarse</h2>
+        <input type="text" ng-model="nuevoUsuario.name" placeholder="Nombre" required /><br>
+        <input type="email" ng-model="nuevoUsuario.email" placeholder="Email" required /><br>
+        <input type="password" ng-model="nuevoUsuario.password" placeholder="Contraseña" required /><br>
+        <button ng-click="registrarUsuario()">Registrarse</button>
+    </div>
+
+    <div ng-if="logueado" class="contenedor">
+        <h1 class="title">Bienvenido {{ usuario.name || nuevoUsuario.name }} a la Galleta de la fortuna</h1>
+        
+        <p>¿Necesitas de un sabio consejo o de un levantón? Obtén la sibudría de la galleta china de la fortuna, eso sí, ¡sin calorías! </p>
+
+        <div class="fondo-boton">
+        <img ng-src="{{ imagenGalleta }}" style="width: 120px; margin-bottom: 20px;" />
+        <button ng-click="mostrarFraseAleatoria()">ABRE TU GALLETA</button>
+        </div>
+        
+        <p class="frase" ng-if="fraseSeleccionada">
+        {{ fraseSeleccionada }}
+        </p>
+        <button ng-click="cerrarSesion()">Cerrar sesión</button>
+    </div>
+
+    </body>
+    </html>
