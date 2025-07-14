@@ -6,6 +6,7 @@ angular.module('cookieApp', [])
 
     $scope.cookies = [];
     $scope.usuario = {};
+    $scope.nuevoUsuario = {};
     $scope.logueado = false;
     $scope.error = '';
     $scope.imagenGalleta = 'img/galleta-cerrada.jpg';
@@ -34,7 +35,7 @@ angular.module('cookieApp', [])
     };
 
     $scope.registrarUsuario = function() {
-        $http.post(apiUsers, $scope.usuario)
+        $http.post(apiUsers, $scope.nuevoUsuario)
             .then(function(res) {
                 console.log('Usuario registrado:', res.data);
                 $scope.logueado = true;

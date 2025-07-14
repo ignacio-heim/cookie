@@ -9,10 +9,9 @@ Route::get('/test', function () {
 });
 
 //USERS CONTROLLER
-Route::get('/users', [UserController::class, 'index']);
-Route::post('/users', [UserController::class, 'store']);
 Route::apiResource('users', UserController::class);
 Route::post('/login', [UserController::class, 'login']);
+Route::post('/users', [UserController::class, 'store']);
 
 //Route::put('/cookies/{id}', [CookieController::class, 'updateCookie']);
 //Route::delete('/cookies/{cookie}', [CookieController::class, 'destroyCookie']);

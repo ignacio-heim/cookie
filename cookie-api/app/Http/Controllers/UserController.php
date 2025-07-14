@@ -32,18 +32,18 @@ class UserController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
-    ]);
+        ]);
 
-    $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
-     if (!$user || !Hash::check($request->password, $user->password)) {
-         return response()->json(['message' => 'Credenciales inválidas'], 401);
-    }
+            if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Credenciales inválidas'], 401);
+        }
 
-        return response()->json([
-         'message' => 'Login exitoso',
-          'user' => $user
-    ]);
+            return response()->json([
+                'message' => 'Login exitoso',
+                'user' => $user
+        ]);
     }
 
     /**
