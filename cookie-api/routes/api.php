@@ -19,8 +19,15 @@ Route::post('/users', [UserController::class, 'store']);
 
 //COOKIES CONTROLLER
 Route::get('/cookies', [CookieController::class, 'index']);
+Route::get('/cookies/random', [CookieController::class, 'getFraseAleatoria']);
 Route::post('/cookies', [CookieController::class, 'storeCookie']);
 Route::put('/cookies/{id}', [CookieController::class, 'updateCookie']);
 Route::delete('/cookies/{cookie}', [CookieController::class, 'destroyCookie']);
 Route::get('/cookies/{id}', [CookieController::class, 'getCookieById']);
+
+
+
+
+
+
 

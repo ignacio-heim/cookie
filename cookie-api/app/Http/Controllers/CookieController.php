@@ -45,5 +45,17 @@ class CookieController extends Controller
         return response()->json($cookie, 200);
     }
 
+    public function getFraseAleatoria()
+    {
+        $frase = Cookie::inRandomOrder()->first();
+
+        if (!$frase) {
+            return response()->json(['error' => 'No hay frases disponibles'], 404);
+        }
+
+        return response()->json($frase);
+    }
+        
+
 
 }
