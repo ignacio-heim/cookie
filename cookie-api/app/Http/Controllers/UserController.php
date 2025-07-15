@@ -46,6 +46,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function hacerAdmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->is_admin = true;
+        $user->save();
+
+        return response()->json(['message' => 'Usuario actualizado como administrador']);
+    }
+
     /**
      * Display the specified resource.
      */

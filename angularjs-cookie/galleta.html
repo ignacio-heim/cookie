@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
     <script src="cookie.js"></script>
+    <script>
+        console.log("Script principal cargado");
+    </script>
 </head>
 <body ng-controller="CookieController">
 
@@ -22,7 +25,14 @@
         <p class="frase" ng-if="fraseSeleccionada">
         {{ fraseSeleccionada }}
         </p>
-        <button ng-click="agregarFrase()">Agregar frase</button>
+
+        <button ng-if="usuario.is_admin" ng-click="agregarFrase()">Agregar frase</button>
+        
+        <div ng-if="mostrarFormularioFrase">
+            <input type="text" ng-model="datos.nuevaFrase" placeholder="Nueva frase" />
+            <button ng-click="enviarFrase()">Guardar</button>
+        </div>        
+
         <button ng-click="cerrarSesion()">Cerrar sesión</button>
     </div>
 

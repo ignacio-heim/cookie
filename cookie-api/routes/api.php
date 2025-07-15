@@ -12,6 +12,7 @@ Route::get('/test', function () {
 Route::apiResource('users', UserController::class);
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/users', [UserController::class, 'store']);
+Route::put('/users/{id}/is-admin', [UserController::class, 'hacerAdmin']);
 
 //Route::put('/cookies/{id}', [CookieController::class, 'updateCookie']);
 //Route::delete('/cookies/{cookie}', [CookieController::class, 'destroyCookie']);

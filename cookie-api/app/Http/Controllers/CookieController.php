@@ -15,10 +15,21 @@ class CookieController extends Controller
 
     public function storeCookie(Request $request)
     {
+
+        $fraseTexto = $request->input('frase');
+
+        if (Cookie::where('frase', $fraseTexto)->exists()) {
+            return response()->json([
+                'error' => 'Esa frase ya existe.'
+            ], 409);
+        }
+
         $data = $request->json()->all();
+    
         $frase = Cookie::create([
             'frase' => $data['frase']        
         ]);
+    
         return response()->json($frase, 201);
     }
 
